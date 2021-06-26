@@ -184,8 +184,118 @@
         margin-right: 2rem;
         fill: currentColor;
     }
+}
 
+/////////////////////////////////////////////////////////////////
+// GALLERY
+.gallery {
+    display: flex;
 
+    &__photo {
+        width: 100%;
+        display: block;
+    }
+}
+
+/////////////////////////////////////////////////////////////////
+// OVERVIEW
+.overview {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom: var(--line);
+
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1rem 2rem;
+    }
+
+    &__stars {
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+        // align-self: center;
+    }
+
+    &__icon-location {
+        margin-right: 1rem;
+    }
+
+    &__rating {
+        background-color: var(--color-primary);
+        color: white;
+        margin-left: 3rem;
+        padding: 0 2.25rem;
+        align-self: stretch;
+
+        display: flex;
+        flex-direction: column;
+
+        &-average {
+            font-size: 2.25rem;
+            font-weight: 300;
+        }
+
+        &-count {
+            font-size: .8rem;
+            text-transform: uppercase;
+        }
+    }
+
+    &__location {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/////////////////////////////////////////////////////////////////
+// BTN INLINE
+.btn-inline {
+    // This button will be used in multiple places, so we are going to make it inherit the font size and color from wherever it is used
+    border: none;
+    border-bottom: 1px solid currentColor;
+    color: var(--color-primary);
+    font-size: inherit;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover,
+    &:focus {
+        color: var(--color-grey-dark-1);
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
 }
 
 .legal {
@@ -194,3 +304,54 @@
     text-align: center;
     padding: 2.5rem;
 }
+
+/////////////////////////////////////////////////////////////////
+// PARAGRAPH
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+/////////////////////////////////////////////////////////////////
+// LIST
+
+.list {
+    margin: 3rem 0;
+    list-style: none;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        flex: 0 0 50%;
+        margin-bottom: .7rem;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            margin-right: .7rem;
+            height: 1.2rem;
+            width: 1.2rem;
+
+            // For older browsers - background-image
+            // background-image: url('../img/chevron-thin-right.svg');
+            // background-size: cover;
+
+            // New browsers - masks
+            // An area of an element through which we can see what is behind it
+            // For the chevrons:
+            //   - Have a background element of a pure colour
+            //   - Apply a 'mask' of an icon to a white element on top of it
+            background-color: var(--color-primary);
+            mask-image: url('../img/chevron-thin-right.svg');
+            mask-size: cover;
+            -webkit-mask-image: url('../img/chevron-thin-right.svg');
+            -webkit-mask-size: cover;
+        }
+    }
+}
+
+/////////////////////////////////////////////////////////////////
+// RECOMMEND
