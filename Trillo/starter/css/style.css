@@ -87,16 +87,19 @@ body {
   display: flex;
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
-  border-bottom: var(--line); }
+  border-bottom: var(--line);
+  font-size: 1.4rem; }
 
 .description {
   flex: 0 0 60%;
   margin-right: 4.5rem;
   box-shadow: var(--shadow-light);
-  padding: 3rem;
-  font-size: 1.4rem; }
+  padding: 3rem; }
 
 .user-reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex: 1; }
 
 .logo {
@@ -273,10 +276,15 @@ body {
   background-color: transparent;
   cursor: pointer;
   transition: all .2s; }
+  .btn-inline span {
+    margin-left: 3px;
+    transition: margin-left .2s; }
   .btn-inline:hover, .btn-inline:focus {
     color: var(--color-grey-dark-1);
     outline: none;
     animation: pulsate 1s infinite; }
+    .btn-inline:hover span, .btn-inline:focus span {
+      margin-left: 8px; }
 
 @keyframes pulsate {
   0% {
@@ -320,3 +328,60 @@ body {
       mask-size: cover;
       -webkit-mask-image: url("../img/chevron-thin-right.svg");
       -webkit-mask-size: cover; }
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .recommend__photo {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid white; }
+    .recommend__photo:not(:last-child) {
+      margin-right: -1.5rem; }
+
+.review {
+  background-color: white;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden; }
+  .review__text {
+    margin-bottom: 2rem;
+    z-index: 10;
+    position: relative; }
+  .review__user {
+    display: flex;
+    align-items: center; }
+  .review__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%; }
+  .review__user-box {
+    margin-right: auto;
+    margin-left: 1rem; }
+  .review__user-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: .4rem; }
+  .review__user-date {
+    font-size: 1rem;
+    color: var(--color-grey-dark-3); }
+  .review__rating {
+    font-size: 2.2rem;
+    color: var(--color-primary); }
+  .review::before {
+    content: '\201C';
+    position: absolute;
+    top: -9rem;
+    left: -1rem;
+    font-size: 20rem;
+    color: var(--color-primary);
+    font-family: sans-serif;
+    z-index: 1; }
